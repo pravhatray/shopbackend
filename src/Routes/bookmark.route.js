@@ -3,6 +3,11 @@ const BookmarkModel = require("../Models/bookmark.model");
 
 const app = express.Router();
 
+app.get('/',async(req,res)=>{
+  let bookmarked=await BookmarkModel.find();
+  res.send(bookmarked);
+})
+
 app.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
